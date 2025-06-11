@@ -1,0 +1,586 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_frame"
+    tools:context=".ui.camera.CameraActivity">
+
+    <FrameLayout
+        android:id="@+id/frameCamera"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/llTopBarCamera"
+        app:layout_constraintBottom_toTopOf="@+id/llBottomBarCamera">
+
+        <androidx.camera.view.PreviewView
+            android:id="@+id/previewView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:scaleType="fitCenter"/>
+
+        <ImageView
+            android:id="@+id/imgGrid"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/img_grid_3x3"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/frameOverlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible"
+            android:scaleType="fitXY"/>
+
+    </FrameLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/llTopBarCamera"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@drawable/bg_frame_50"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- Nút back -->
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="26dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_back"
+            android:tint="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Nút flash -->
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btnFlash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_flash_off"
+            android:layout_marginStart="46dp"
+            app:layout_constraintStart_toEndOf="@+id/btnBack"
+            app:layout_constraintTop_toTopOf="@+id/btnBack"/>
+
+        <!-- Nút change size -->
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btnChangeSize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="66dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_change_size"
+            app:layout_constraintStart_toEndOf="@+id/btnBack"
+            app:layout_constraintTop_toTopOf="@+id/btnBack"
+            app:layout_constraintEnd_toStartOf="@+id/btnGrid" />
+
+        <!-- Nút timer -->
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btnTimer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="66dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_timer"
+            app:layout_constraintStart_toEndOf="@+id/btnBack"
+            app:layout_constraintTop_toTopOf="@+id/btnBack"
+            app:layout_constraintEnd_toStartOf="@+id/btnGrid"/>
+
+        <!-- Nút Filter -->
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btnFilter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_frame"
+            app:layout_constraintStart_toEndOf="@+id/btnTimer"
+            app:layout_constraintTop_toTopOf="@+id/btnBack"
+            app:layout_constraintEnd_toStartOf="@+id/btnGrid"/>
+
+
+        <!-- Nút FPS -->
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btnFPS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="26dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_720p"
+            android:visibility="gone"
+            android:tint="@color/white"
+            app:layout_constraintStart_toEndOf="@+id/btnBack"
+            app:layout_constraintTop_toTopOf="@+id/btnBack"
+            app:layout_constraintEnd_toStartOf="@+id/btnGrid" />
+
+        <TextView
+            android:id="@+id/tvFPS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="30"
+            android:textSize="7sp"
+            android:textColor="@color/black"
+            android:visibility="gone"
+            android:layout_marginTop="11dp"
+            app:layout_constraintTop_toTopOf="@+id/btnFPS"
+            app:layout_constraintBottom_toBottomOf="@+id/btnFPS"
+            app:layout_constraintStart_toStartOf="@+id/btnFPS"
+            app:layout_constraintEnd_toEndOf="@+id/btnFPS"/>
+
+        <!-- Nút Video rung -->
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btnVideoRung"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="76dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_video_rung"
+            android:visibility="gone"
+            app:layout_constraintStart_toEndOf="@+id/btnFlash"
+            app:layout_constraintTop_toTopOf="@+id/btnBack"
+            app:layout_constraintEnd_toStartOf="@+id/btnGrid"/>
+
+
+        <!-- Nút grid -->
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btnGrid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="28dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_grid"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/btnBack" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/llSplash"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        android:background="@drawable/bg_frame_50"
+        app:layout_constraintTop_toBottomOf="@+id/llTopBarCamera"
+        android:paddingTop="14dp"
+        android:paddingBottom="30dp"
+        android:paddingHorizontal="40dp">
+
+        <!-- Nút flash off-->
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btnFlashOff"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:src="@drawable/ic_flash_off"
+            android:background="@drawable/bg_choose"/>
+
+        <!-- Nút flash off-->
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btnFlashOn"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="20dp"
+            android:src="@drawable/ic_flash_on"
+            android:background="@android:color/transparent"/>
+
+        <!-- Nút flash off-->
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btnFlashA"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:src="@drawable/ic_flash_a"
+            android:background="@android:color/transparent"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llChangeSize"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/bg_frame_50"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@+id/llTopBarCamera"
+        android:paddingTop="14dp"
+        android:paddingBottom="30dp"
+        android:paddingHorizontal="40dp">
+
+        <!-- Nút 1:1-->
+        <TextView
+            android:id="@+id/btn11"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:text="1:1"
+            android:textSize="15sp"
+            android:fontFamily="@font/barlow_regular_400"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:background="@drawable/bg_choose"/>
+
+        <!-- Nút 4:3-->
+        <TextView
+            android:id="@+id/btn43"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="20dp"
+            android:text="4:3"
+            android:textSize="15sp"
+            android:fontFamily="@font/barlow_regular_400"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:background="@android:color/transparent"/>
+
+        <!-- Nút 16:9-->
+        <TextView
+            android:id="@+id/btn169"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:text="16:9"
+            android:textSize="15sp"
+            android:fontFamily="@font/barlow_regular_400"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:background="@android:color/transparent"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llTimer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/bg_frame_50"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@+id/llTopBarCamera"
+        android:paddingTop="14dp"
+        android:paddingBottom="30dp"
+        android:paddingHorizontal="40dp">
+
+        <!-- Nút Timer off-->
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btnTimerOff"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:tint="@color/main"
+            android:src="@drawable/ic_timer_off"
+            android:background="@android:color/transparent"/>
+
+        <!-- Nút Timer 3s-->
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btnTimer3s"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/ic_timer_3s"
+            android:background="@android:color/transparent"/>
+
+        <!-- Nút  Timer 5s-->
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btnTimer5s"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="20dp"
+            android:src="@drawable/ic_timer_5s"
+            android:background="@android:color/transparent"/>
+
+        <!-- Nút  Timer 9s-->
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btnTimer9s"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:src="@drawable/ic_timer_9s"
+            android:background="@android:color/transparent"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llGrid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="14dp"
+        android:paddingBottom="30dp"
+        android:paddingHorizontal="15dp"
+        android:background="@drawable/bg_frame_50"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@+id/llTopBarCamera">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcvGrid"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+    <!-- Chỉnh chát luong video-->
+    <LinearLayout
+        android:id="@+id/llFPS"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/bg_frame_50"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@+id/llTopBarCamera"
+        android:paddingTop="14dp"
+        android:paddingBottom="30dp"
+        android:paddingHorizontal="40dp">
+
+        <!-- Nút 720p-->
+        <TextView
+            android:id="@+id/btn720p"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:text="720p"
+            android:textSize="15sp"
+            android:fontFamily="@font/barlow_regular_400"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:background="@drawable/bg_choose"/>
+
+        <!-- Nút 1080p-->
+        <TextView
+            android:id="@+id/btn1080p"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="20dp"
+            android:text="1080p"
+            android:textSize="15sp"
+            android:fontFamily="@font/barlow_regular_400"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:background="@android:color/transparent"/>
+
+        <!-- Nút 4K-->
+        <TextView
+            android:id="@+id/btn4K"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:text="4K"
+            android:textSize="15sp"
+            android:fontFamily="@font/barlow_regular_400"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:background="@android:color/transparent"/>
+    </LinearLayout>
+
+    <!-- Chỉnh do on dinh-->
+    <LinearLayout
+        android:id="@+id/llVideoRung"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/bg_frame_50"
+        android:visibility="gone"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@+id/llTopBarCamera"
+        android:paddingTop="14dp"
+        android:paddingBottom="30dp"
+        android:paddingHorizontal="40dp">
+
+        <!-- Nút on-->
+        <TextView
+            android:id="@+id/btnVideoRungOn"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:text="On"
+            android:textSize="15sp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/barlow_regular_400"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:background="@drawable/bg_choose"/>
+
+        <!-- Nút 1080p-->
+        <TextView
+            android:id="@+id/btnVideoRungOff"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:layout_marginStart="20dp"
+            android:text="Off"
+            android:textSize="15sp"
+            android:fontFamily="@font/barlow_regular_400"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:background="@android:color/transparent"/>
+
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/llBottomBarCamera"
+        android:layout_width="match_parent"
+        android:layout_height="114dp"
+        android:background="@drawable/bg_frame_50"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <!-- Nút chụp-->
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btnCapture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:background="@android:color/transparent"
+            android:scaleType="centerInside"
+            android:layout_gravity="center_horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/ic_capture" />
+
+        <!-- Nút Rotate camera -->
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btnRotateCamera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_rotate_camera"
+            app:layout_constraintTop_toTopOf="@+id/btnCapture"
+            app:layout_constraintBottom_toBottomOf="@+id/btnCapture"
+            app:layout_constraintStart_toEndOf="@+id/btnCapture"
+            app:layout_constraintEnd_toStartOf="@+id/btnSetting"/>
+
+        <!-- Nút setting -->
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btnSetting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="28dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_setting"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/btnCapture"
+            app:layout_constraintBottom_toBottomOf="@+id/btnCapture"/>
+
+        <!-- Nút Gallery-->
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btnGallery"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="28dp"
+            android:src="@drawable/ic_gallery"
+            android:background="@drawable/bg_gallery"
+            android:scaleType="centerCrop"
+            android:clipToOutline="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/btnCapture"
+            app:layout_constraintBottom_toBottomOf="@+id/btnCapture"/>
+
+        <!-- Nút chuyển video or camera-->
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btnVideoOrCamera"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_video"
+            app:layout_constraintTop_toTopOf="@+id/btnCapture"
+            app:layout_constraintBottom_toBottomOf="@+id/btnCapture"
+            app:layout_constraintStart_toEndOf="@+id/btnGallery"
+            app:layout_constraintEnd_toStartOf="@+id/btnCapture"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/llBottomBarVideo"
+        android:layout_width="match_parent"
+        android:layout_height="124dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+        <TextView
+            android:id="@+id/tvTimerRecord"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:layout_marginBottom="6dp"
+            android:textSize="15sp"
+            android:textColor="@color/white"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/btnRecord"
+            />
+
+        <!-- Nút quay-->
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btnRecord"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:background="@android:color/transparent"
+            android:scaleType="centerInside"
+            android:visibility="gone"
+            android:layout_gravity="center_horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/img_record"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/tvCountdown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="62sp"
+        android:textColor="@android:color/white"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+
+    <FrameLayout
+        android:id="@+id/frameContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+
+    <View
+        android:id="@+id/flashOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFFFF"
+        android:visibility="gone"
+        android:alpha="0.8" />
+
+    <FrameLayout
+        android:id="@+id/llFilter"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingTop="10dp"
+        android:background="@drawable/bg_frame"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/llTopBarCamera">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcvFilter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

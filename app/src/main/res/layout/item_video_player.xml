@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.beautycam.hdcam.photoeditor.library.zoomimg.views.GestureFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:gest_fitMethod="inside"
+        app:gest_gravity="center">
+
+        <FrameLayout
+            android:id="@+id/parent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <VideoView
+                android:id="@+id/videoView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true" />
+
+
+        </FrameLayout>
+
+    </com.beautycam.hdcam.photoeditor.library.zoomimg.views.GestureFrameLayout>
+
+    <ImageView
+        android:id="@+id/btnPlayPause"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_play" />
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_margin="16dp"
+        android:max="100"
+        android:maxWidth="6dp"
+        android:maxHeight="6dp"
+        android:progress="25"
+        android:progressDrawable="@drawable/custom_seekbar_progress"
+        android:thumb="@drawable/ic_thumb_seekbar" />
+
+</FrameLayout>

@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <RelativeLayout
+        android:id="@+id/layout_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingVertical="@dimen/_5sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imgClose"
+            style="@style/SelectableItemBackground"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="0dp"
+            android:paddingHorizontal="@dimen/_15sdp"
+            android:paddingVertical="@dimen/_10sdp"
+            android:src="@drawable/ic_back" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/barlow_medium_500"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:paddingStart="@dimen/_10sdp"
+            android:text="@string/edit"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_20ssp" />
+
+        <ImageView
+            android:id="@+id/imgSave"
+            style="@style/SelectableItemBackground"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:paddingHorizontal="@dimen/_15sdp"
+            android:paddingVertical="@dimen/_10sdp"
+            android:src="@drawable/ic_dowload" />
+
+        <TextView
+            android:id="@+id/tv_done_filter"
+            style="@style/SelectableItemBackground"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:includeFontPadding="false"
+            android:textSize="@dimen/_13ssp"
+            android:textColor="#FF8594"
+            android:gravity="center_vertical"
+            android:visibility="gone"
+            android:fontFamily="@font/barlow_semibold_600"
+            android:drawableStart="@drawable/ic_done"
+            android:paddingHorizontal="@dimen/_15sdp"
+            android:paddingVertical="@dimen/_10sdp"
+            android:text="@string/done" />
+
+    </RelativeLayout>
+
+
+    <ja.burhanrashid52.photoeditor.PhotoEditorView
+        android:id="@+id/photoEditorView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/layout_undo_redo"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_header"
+        app:photo_src="@drawable/blank_image" />
+
+    <LinearLayout
+        android:id="@+id/layout_undo_redo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingVertical="@dimen/_30sdp"
+        app:layout_constraintBottom_toTopOf="@+id/rvConstraintTools"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/imgUndo"
+            style="@style/SelectableItemBackground"
+            android:layout_width="@dimen/top_tool_icon_width"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:padding="8dp"
+            android:src="@drawable/undo"
+            app:layout_constraintBottom_toBottomOf="@+id/imgRedo"
+            app:layout_constraintStart_toEndOf="@+id/imgCamera"
+            app:layout_constraintTop_toTopOf="@+id/imgRedo" />
+
+        <ImageView
+            android:id="@+id/imgRedo"
+            android:layout_width="@dimen/top_tool_icon_width"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:padding="8dp"
+            android:src="@drawable/redo"
+            app:layout_constraintBottom_toTopOf="@+id/rvConstraintTools"
+            app:layout_constraintStart_toEndOf="@+id/imgUndo" />
+    </LinearLayout>
+
+
+    <ImageView
+        android:id="@+id/imgGallery"
+        style="@style/SelectableItemBackground"
+        android:layout_width="@dimen/top_tool_icon_width"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:src="@drawable/ic_gallery"
+        app:layout_constraintBottom_toTopOf="@+id/rvConstraintTools"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/photoEditorView" />
+
+    <ImageView
+        android:id="@+id/imgCamera"
+        style="@style/SelectableItemBackground"
+        android:layout_width="@dimen/top_tool_icon_width"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:src="@drawable/ic_camera_edit"
+        app:layout_constraintBottom_toTopOf="@+id/rvConstraintTools"
+        app:layout_constraintStart_toEndOf="@id/imgGallery"
+        app:layout_constraintTop_toBottomOf="@+id/photoEditorView" />
+    <ImageView
+        android:id="@+id/imgShare"
+        style="@style/SelectableItemBackground"
+        android:layout_width="@dimen/top_tool_icon_width"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:src="@drawable/ic_share_edit"
+        app:layout_constraintBottom_toBottomOf="@+id/layout_undo_redo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/photoEditorView" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvConstraintTools"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/tool_bg"
+        android:orientation="horizontal"
+        android:paddingBottom="4dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:listitem="@layout/row_editing_tools" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvFilterView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/tool_bg"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="@+id/layout_undo_redo"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/layout_undo_redo"
+        tools:listitem="@layout/row_filter_view" />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

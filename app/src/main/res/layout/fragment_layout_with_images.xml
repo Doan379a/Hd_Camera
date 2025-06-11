@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbarMediaImage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/black_light"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/ic_back"
+        app:navigationIconTint="@color/white"
+        app:title="@string/app_name"
+        app:titleTextColor="@color/white" />
+
+    <com.hypersoft.pzlayout.SquarePuzzleView
+        android:id="@+id/puzzle_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#00B0FF"
+        app:layout_constraintBottom_toTopOf="@+id/seekbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarMediaImage"
+        app:radian="30" />
+
+    <androidx.appcompat.widget.AppCompatSeekBar
+        android:id="@+id/seekbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginBottom="4dp"
+        android:max="100"
+        android:progress="10"
+        android:progressBackgroundTint="@color/grey"
+        android:progressTint="@color/white"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/pieceButtons"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <HorizontalScrollView
+        android:id="@+id/pieceButtons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#232323"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/bottomNav"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <!--<com.google.android.material.textview.MaterialTextView
+                android:id="@+id/pswap"
+                style="@style/SelectableItemBackground"
+                android:layout_width="46dp"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/swappiece"
+                android:gravity="center"
+                android:text="@string/pswap"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_8sdp" />-->
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/pmirror"
+                style="@style/SelectableItemBackground"
+                android:layout_width="46dp"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/ic_mirrorpiece"
+                android:gravity="center"
+                android:text="pmirror"
+                android:textColor="@color/white"
+                android:textSize="8dp" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/pflip"
+                style="@style/SelectableItemBackground"
+                android:layout_width="46dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:drawableTop="@drawable/ic_flippiece"
+                android:gravity="center"
+                android:text="flip"
+                android:textColor="@color/white"
+                android:textSize="8dp" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/protate"
+                style="@style/SelectableItemBackground"
+                android:layout_width="46dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:drawableTop="@drawable/ic_rotatepiece"
+                android:gravity="center"
+                android:text="rotate"
+                android:textColor="@color/white"
+                android:textSize="8dp" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/pzoomplus"
+                style="@style/SelectableItemBackground"
+                android:layout_width="46dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:drawableTop="@drawable/ic_zoom_piece_plus"
+                android:gravity="center"
+                android:text="zoomplus"
+                android:textColor="@color/white"
+                android:textSize="8dp" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/pzoomminus"
+                style="@style/SelectableItemBackground"
+                android:layout_width="46dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:drawableTop="@drawable/ic_zoom_piece_minus"
+                android:gravity="center"
+                android:text="zoomplus"
+                android:textColor="@color/white"
+                android:textSize="8dp" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/pleft"
+                style="@style/SelectableItemBackground"
+                android:layout_width="46dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:drawableTop="@drawable/ic_leftpiece"
+                android:gravity="center"
+                android:text="left"
+                android:textColor="@color/white"
+                android:textSize="8dp" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/pright"
+                style="@style/SelectableItemBackground"
+                android:layout_width="46dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:drawableTop="@drawable/ic_rightpiece"
+                android:gravity="center"
+                android:text="right"
+                android:textColor="@color/white"
+                android:textSize="8dp" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/pup"
+                style="@style/SelectableItemBackground"
+                android:layout_width="46dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:drawableTop="@drawable/ic_uppiece"
+                android:gravity="center"
+                android:text="up"
+                android:textColor="@color/white"
+                android:textSize="8dp" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/pdown"
+                style="@style/SelectableItemBackground"
+                android:layout_width="46dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:drawableTop="@drawable/ic_downpiece"
+                android:gravity="center"
+                android:text="down"
+                android:textColor="@color/white"
+                android:textSize="8dp" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/btnCorner"
+                style="@style/SelectableItemBackground"
+                android:layout_width="46dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:drawableTop="@drawable/ic_corner"
+                android:gravity="center"
+                android:text="corner"
+                android:textColor="@color/white"
+                android:textSize="8dp" />
+
+            <!-- <com.google.android.material.textview.MaterialTextView
+                 android:id="@+id/pchange"
+                 style="@style/SelectableItemBackground"
+                 android:layout_width="46dp"
+                 android:layout_height="wrap_content"
+                 android:layout_marginStart="@dimen/_8sdp"
+                 android:drawableTop="@drawable/changepiece"
+                 android:gravity="center"
+                 android:text="@string/pchange"
+                 android:textColor="@color/white"
+                 android:textSize="@dimen/_8sdp" />-->
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

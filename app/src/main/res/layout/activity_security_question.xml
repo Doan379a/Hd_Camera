@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:paddingHorizontal="20dp"
+    android:paddingTop="25dp"
+    tools:context=".ui.pass.SecurityQuestionActivity">
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/btn_close"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/barlow_medium_500"
+        android:text="@string/set_security_question"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_close"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btn_close" />
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/bg_btn_app"
+        android:backgroundTint="#FFF1D5"
+        android:drawableStart="@drawable/ic_warning_1"
+        android:textColor="@color/black"
+        android:drawablePadding="4dp"
+        android:fontFamily="@font/barlow_regular_400"
+        android:paddingHorizontal="12dp"
+        android:paddingVertical="4dp"
+        android:text="@string/you_can_retrieve_your_password_via_security_question"
+        android:textSize="12dp"
+        app:layout_constraintTop_toBottomOf="@+id/btn_close" />
+
+
+    <TextView
+        android:id="@+id/spnQuestion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/bg_btn_app"
+        android:backgroundTint="#F5F5F5"
+        android:fontFamily="@font/barlow_medium_500"
+        android:includeFontPadding="false"
+        android:paddingHorizontal="@dimen/_10sdp"
+        android:paddingVertical="@dimen/_10sdp"
+        android:text="@string/question_1"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@+id/tvTextView" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:src="@drawable/ic_down"
+        app:layout_constraintBottom_toBottomOf="@+id/spnQuestion"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/spnQuestion" />
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_btn_app"
+        android:backgroundTint="#F5F5F5"
+        android:padding="4dp"
+        app:layout_constraintTop_toBottomOf="@+id/spnQuestion"
+        tools:layout_editor_absoluteX="20dp">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/edtResult"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:fontFamily="@font/barlow_medium_500"
+            android:gravity="top|start"
+            android:hint="@string/please_enter_the_answer"
+            android:inputType="textMultiLine"
+            android:maxLength="50"
+            android:textSize="16sp"
+            android:padding="8dp"
+            android:textColor="#000000"
+            android:textColorHint="#888888" />
+
+
+        <TextView
+            android:id="@+id/tvCounter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="12dp"
+            android:fontFamily="@font/barlow_medium_500"
+            android:text="0/50"
+            android:textColor="#888888"
+            android:textSize="14sp" />
+    </RelativeLayout>
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnOk"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginHorizontal="50dp"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/bg_select_tab"
+        android:text="@string/ok"
+        android:textAllCaps="false"
+        android:fontFamily="@font/barlow_bold_700"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_rcv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_marginTop="@dimen/_3sdp"
+        app:cardCornerRadius="@dimen/_10sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spnQuestion">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcv_Question"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#F5F5F5"
+           />
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

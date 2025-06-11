@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layoutDirection="ltr"
+    android:orientation="vertical"
+    android:paddingHorizontal="21dp"
+    android:paddingVertical="8dp">
+
+    <RelativeLayout
+        android:id="@+id/layoutItem"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/border_item_language"
+        android:paddingHorizontal="10dp">
+
+
+        <ImageView
+            android:id="@+id/icLang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="5dp"
+            android:adjustViewBounds="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            tools:src="@drawable/ic_launcher_background" />
+
+
+        <TextView
+            android:id="@+id/txtName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="20dp"
+            android:layout_toStartOf="@+id/imgCheck"
+            android:layout_toEndOf="@+id/icLang"
+            android:fontFamily="@font/barlow_regular_400"
+            android:includeFontPadding="false"
+            android:textColor="#292B2B"
+            android:textSize="16sp"
+            tools:text="English" />
+
+        <ImageView
+            android:id="@+id/imgCheck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/ic_check_language"
+            android:visibility="invisible" />
+    </RelativeLayout>
+</LinearLayout>

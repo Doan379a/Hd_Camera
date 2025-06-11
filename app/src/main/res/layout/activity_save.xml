@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imgClose"
+        style="@style/SelectableItemBackground"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:paddingHorizontal="@dimen/_15sdp"
+        android:paddingVertical="@dimen/_10sdp"
+        android:src="@drawable/ic_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="@dimen/_180sdp"
+        android:layout_height="@dimen/_230sdp"
+        android:background="@android:color/transparent"
+        app:cardBackgroundColor="@android:color/transparent"
+        app:cardCornerRadius="20dp"
+        android:layout_marginTop="@dimen/_10sdp"
+        app:cardElevation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgClose">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img_beach" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/tv_edit_one_more"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_30sdp"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:background="@drawable/bg_select_tab"
+        android:fontFamily="@font/barlow_medium_500"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:paddingVertical="@dimen/_10sdp"
+        android:text="@string/edit_one_more"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_18ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+    <TextView
+        android:id="@+id/tv_back_home"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_30sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:background="@drawable/bg_select_tab_boder"
+        android:fontFamily="@font/barlow_medium_500"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:paddingVertical="@dimen/_10sdp"
+        android:text="@string/back_to_home"
+        android:textColor="#FF8594"
+        android:textSize="@dimen/_18ssp"
+        app:layout_constraintEnd_toEndOf="@+id/tv_edit_one_more"
+        app:layout_constraintStart_toStartOf="@+id/tv_edit_one_more"
+        app:layout_constraintTop_toBottomOf="@+id/tv_edit_one_more" />
+
+    <TextView
+        android:id="@+id/tv_5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:fontFamily="@font/barlow_medium_500"
+        android:gravity="start"
+        android:includeFontPadding="false"
+        android:paddingVertical="@dimen/_10sdp"
+        android:paddingStart="@dimen/_30sdp"
+        android:text="@string/share_to"
+        android:textColor="#A8A8A8"
+        android:textSize="@dimen/_18ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_back_home" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/_20sdp"
+        app:layout_constraintEnd_toEndOf="@+id/tv_5"
+        app:layout_constraintStart_toStartOf="@+id/tv_5"
+        app:layout_constraintTop_toBottomOf="@+id/tv_5">
+
+        <TextView
+            android:id="@+id/tv_whats_app"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_whatsapp"
+            android:fontFamily="@font/barlow_regular_400"
+            android:gravity="center"
+            android:drawablePadding="@dimen/_10sdp"
+            android:includeFontPadding="false"
+            android:paddingVertical="@dimen/_10sdp"
+            android:text="@string/whatsapp"
+            android:textColor="#646464"
+            android:textSize="@dimen/_15ssp" />
+
+        <TextView
+            android:id="@+id/tv_facebook"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_facebook"
+            android:fontFamily="@font/barlow_regular_400"
+            android:gravity="center"
+            android:drawablePadding="@dimen/_10sdp"
+            android:includeFontPadding="false"
+            android:paddingVertical="@dimen/_10sdp"
+            android:text="@string/facebook"
+            android:textColor="#646464"
+            android:textSize="@dimen/_15ssp" />
+
+        <TextView
+            android:id="@+id/tv_instagram"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_instagram"
+            android:fontFamily="@font/barlow_regular_400"
+            android:gravity="center"
+            android:drawablePadding="@dimen/_10sdp"
+            android:includeFontPadding="false"
+            android:paddingVertical="@dimen/_10sdp"
+            android:text="@string/instagram"
+            android:textColor="#646464"
+            android:textSize="@dimen/_15ssp" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

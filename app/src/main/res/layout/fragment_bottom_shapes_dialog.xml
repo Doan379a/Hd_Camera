@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/_5sdp">
+
+    <HorizontalScrollView
+        android:id="@+id/scoll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:fillViewport="true"
+        android:scrollbars="none"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_done">
+
+        <RadioGroup
+            android:id="@+id/shapeRadioGroup"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_done">
+
+            <RadioButton
+                android:id="@+id/brushRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:checked="true"
+                android:fontFamily="@font/barlow_regular_400"
+                android:includeFontPadding="false"
+                android:text="@string/label_brush"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14ssp"
+                app:buttonTint="@color/custom_radio" />
+
+            <RadioButton
+                android:id="@+id/lineRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:fontFamily="@font/barlow_regular_400"
+                android:includeFontPadding="false"
+                android:text="@string/label_line"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14ssp"
+                app:buttonTint="@color/custom_radio" />
+
+            <RadioButton
+                android:id="@+id/arrowRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:fontFamily="@font/barlow_regular_400"
+                android:includeFontPadding="false"
+                android:text="@string/label_arrow"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14ssp"
+                app:buttonTint="@color/custom_radio" />
+
+            <RadioButton
+                android:id="@+id/ovalRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:fontFamily="@font/barlow_regular_400"
+                android:includeFontPadding="false"
+                android:text="@string/label_oval"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14ssp"
+                app:buttonTint="@color/custom_radio" />
+
+            <RadioButton
+                android:id="@+id/rectRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:fontFamily="@font/barlow_regular_400"
+                android:includeFontPadding="false"
+                android:text="@string/label_rectangle"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14ssp"
+                app:buttonTint="@color/custom_radio" />
+
+        </RadioGroup>
+    </HorizontalScrollView>
+
+    <SeekBar
+        android:id="@+id/shapeSize"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:max="100"
+        android:maxWidth="6dp"
+        android:maxHeight="6dp"
+        android:progress="25"
+        android:progressDrawable="@drawable/custom_seekbar_progress"
+        android:thumb="@drawable/ic_thumb_seekbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtShapeSize" />
+
+    <SeekBar
+        android:id="@+id/shapeOpacity"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:max="255"
+        android:maxWidth="6dp"
+        android:maxHeight="6dp"
+        android:progress="255"
+        android:progressDrawable="@drawable/custom_seekbar_progress"
+        android:thumb="@drawable/ic_thumb_seekbar"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtOpacity" />
+
+    <TextView
+        android:id="@+id/txtShapeSize"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/barlow_semibold_600"
+        android:includeFontPadding="false"
+        android:paddingHorizontal="@dimen/_8sdp"
+        android:text="@string/brush"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="#616161"
+        android:textSize="@dimen/_14ssp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/scoll" />
+
+    <TextView
+        android:id="@+id/txtOpacity"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/barlow_semibold_600"
+        android:includeFontPadding="false"
+        android:paddingHorizontal="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:text="Opacity"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="#616161"
+        android:textSize="@dimen/_14ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/shapeSize" />
+
+    <TextView
+        android:id="@+id/shapeType"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:drawableStart="@drawable/ic_shape"
+        android:drawablePadding="@dimen/_10sdp"
+        android:fontFamily="@font/barlow_semibold_600"
+        android:gravity="center_vertical"
+        android:includeFontPadding="false"
+        android:paddingHorizontal="@dimen/_8sdp"
+        android:text="@string/shape"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="#5D5D5D"
+        android:textSize="@dimen/_20ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_done"
+        style="@style/SelectableItemBackground"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:drawableStart="@drawable/ic_done"
+        android:fontFamily="@font/barlow_semibold_600"
+        android:drawablePadding="@dimen/_5sdp"
+        android:includeFontPadding="false"
+        android:paddingHorizontal="@dimen/_15sdp"
+        android:gravity="center_vertical"
+        android:paddingVertical="@dimen/_10sdp"
+        android:text="@string/done"
+        android:textColor="#FF8594"
+        android:textSize="@dimen/_13ssp"
+        app:layout_constraintBottom_toBottomOf="@+id/shapeType"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/shapeType" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/shapeColors"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/shapeOpacity"
+        tools:background="@android:color/black"
+        tools:listitem="@layout/color_picker_item_list" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

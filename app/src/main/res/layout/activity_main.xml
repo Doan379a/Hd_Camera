@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_F5FFFE">
+
+    <RelativeLayout
+        android:id="@+id/layout_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@+id/img_setting"
+            android:fontFamily="@font/barlow_bold_700"
+            android:includeFontPadding="false"
+            android:paddingStart="@dimen/_15sdp"
+            android:text="HD Camera"
+            android:textColor="#FF8594"
+            android:textSize="@dimen/_20ssp" />
+
+        <ImageView
+            android:id="@+id/img_setting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:padding="@dimen/_10sdp"
+            android:src="@drawable/ic_setting2" />
+    </RelativeLayout>
+
+    <androidx.gridlayout.widget.GridLayout
+        android:id="@+id/gridLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_380sdp"
+        android:background="@color/color_F5FFFE"
+        android:padding="@dimen/_10sdp"
+        app:columnCount="2"
+        app:layout_constraintTop_toBottomOf="@+id/layout_header"
+        app:orientation="horizontal"
+        app:rowCount="2">
+
+        <!-- Ô 1 -->
+        <RelativeLayout
+            android:id="@+id/layout_editor"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="8dp"
+            android:background="@drawable/bg_item_home1"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="@dimen/_15sdp"
+                android:src="@drawable/ic_item_home1" />
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:fontFamily="@font/barlow_bold_700"
+                android:includeFontPadding="false"
+                android:paddingVertical="@dimen/_10sdp"
+                android:paddingStart="@dimen/_15sdp"
+                android:text="@string/editor"
+                android:textColor="#FFFFFF"
+                android:textSize="@dimen/_20ssp" />
+        </RelativeLayout>
+
+        <!-- Ô 2 -->
+        <RelativeLayout
+            android:id="@+id/layout_collage"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="8dp"
+            android:background="@drawable/bg_item_home2"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="@dimen/_15sdp"
+                android:src="@drawable/ic_item_home2" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:fontFamily="@font/barlow_bold_700"
+                android:includeFontPadding="false"
+                android:paddingVertical="@dimen/_10sdp"
+                android:paddingStart="@dimen/_15sdp"
+                android:text="@string/collage"
+                android:textColor="#FFFFFF"
+                android:textSize="@dimen/_20ssp" />
+        </RelativeLayout>
+
+        <!-- Ô 3 -->
+        <RelativeLayout
+            android:id="@+id/layout_vault"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="8dp"
+            android:background="@drawable/bg_item_home3"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="@dimen/_15sdp"
+                android:src="@drawable/ic_item_home3" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:fontFamily="@font/barlow_bold_700"
+                android:includeFontPadding="false"
+                android:paddingVertical="@dimen/_10sdp"
+                android:paddingStart="@dimen/_15sdp"
+                android:text="@string/vault"
+                android:textColor="#FFFFFF"
+                android:textSize="@dimen/_20ssp" />
+        </RelativeLayout>
+
+        <!-- Ô 4 -->
+        <RelativeLayout
+            android:id="@+id/layout_gallery"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="8dp"
+            android:background="@drawable/bg_item_home4"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="@dimen/_15sdp"
+                android:src="@drawable/ic_item_home4" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:fontFamily="@font/barlow_bold_700"
+                android:includeFontPadding="false"
+                android:paddingVertical="@dimen/_10sdp"
+                android:paddingStart="@dimen/_15sdp"
+                android:text="@string/gallery"
+                android:textColor="#FFFFFF"
+                android:textSize="@dimen/_20ssp" />
+        </RelativeLayout>
+
+    </androidx.gridlayout.widget.GridLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingTop="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gridLayout">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="-180dp"
+            android:src="@drawable/bg_bottom_home"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <ImageView
+            android:id="@+id/img_camera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+
+            android:src="@drawable/ic_camera" />
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

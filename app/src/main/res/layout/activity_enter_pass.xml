@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.pass.EnterPassActivity" android:background="@color/white"
+    android:paddingTop="25dp"
+    android:paddingHorizontal="20dp">
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/btn_close"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/ic_back"
+        android:background="@android:color/transparent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnReset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/reset"
+        android:textColor="@color/white"
+        android:visibility="invisible"
+        android:background="@drawable/bg_btn_app"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+    <LinearLayout
+        android:id="@+id/llInput"
+        android:layout_width="match_parent"
+        android:layout_height="22dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/btn_close"
+        android:layout_marginHorizontal="10dp"
+        android:gravity="center"
+        android:layout_marginTop="76dp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:id="@+id/tv_number1"
+            android:textColor="@color/main"
+            android:background="@drawable/bg_pin_ok"
+            android:includeFontPadding="true"
+            android:textAlignment="center"
+            android:textSize="4sp"
+            android:layout_marginHorizontal="12dp"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:id="@+id/tv_number2"
+            android:textColor="@color/main"
+            android:includeFontPadding="true"
+            android:textAlignment="center"
+            android:textSize="4sp"
+            android:background="@drawable/bg_pin_non"
+            android:layout_marginHorizontal="12dp"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:id="@+id/tv_number3"
+            android:textColor="@color/main"
+            android:includeFontPadding="true"
+            android:textAlignment="center"
+            android:textSize="4sp"
+            android:background="@drawable/bg_pin_non"
+            android:layout_marginHorizontal="12dp"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:id="@+id/tv_number4"
+            android:textColor="@color/main"
+            android:includeFontPadding="true"
+            android:textAlignment="center"
+            android:textSize="4sp"
+            android:background="@drawable/bg_pin_non"
+            android:layout_marginHorizontal="12dp"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvCreate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/enter_pass"
+        android:textColor="#323232"
+        android:textSize="18sp"
+        android:fontFamily="@font/barlow_regular_400"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/llInput"
+        android:layout_marginTop="30dp"/>
+
+
+    <LinearLayout
+        android:id="@+id/customKeyboard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvCreate"
+        tools:layout_editor_absoluteX="20dp">
+
+        <!-- Hàng 1: 1 2 3 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="26dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_1"
+                style="@style/KeyButton"
+                android:text="1" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_2"
+                style="@style/KeyButton"
+                android:text="2" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_3"
+                style="@style/KeyButton"
+                android:text="3" />
+        </LinearLayout>
+
+        <!-- Hàng 2: 4 5 6 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="26dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_4"
+                style="@style/KeyButton"
+                android:text="4" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_5"
+                style="@style/KeyButton"
+                android:text="5" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_6"
+                style="@style/KeyButton"
+                android:text="6" />
+        </LinearLayout>
+
+        <!-- Hàng 3: 7 8 9 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="26dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_7"
+                style="@style/KeyButton"
+                android:text="7" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_8"
+                style="@style/KeyButton"
+                android:text="8" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_9"
+                style="@style/KeyButton"
+                android:text="9" />
+        </LinearLayout>
+
+        <!-- Hàng 4: Xóa 0 OK -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/btn_ok"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginHorizontal="30dp"
+                android:backgroundTint="@color/white" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_0"
+                style="@style/KeyButton"
+                android:text="0" />
+
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/btn_delete"
+                style="@style/KeyButton"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_delete" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

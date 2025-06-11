@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:id="@+id/layout_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingVertical="@dimen/_10sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/img_back"
+            style="@style/SelectableItemBackground"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="0dp"
+            android:paddingHorizontal="@dimen/_15sdp"
+            android:paddingVertical="@dimen/_10sdp"
+            android:src="@drawable/ic_back" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@+id/img_dowload"
+            android:layout_toEndOf="@+id/img_back"
+            android:fontFamily="@font/barlow_medium_500"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:paddingStart="@dimen/_10sdp"
+            android:text="@string/collage"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_20ssp" />
+
+        <ImageView
+            android:id="@+id/img_dowload"
+            style="@style/SelectableItemBackground"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:paddingHorizontal="@dimen/_15sdp"
+            android:paddingVertical="@dimen/_10sdp"
+            android:src="@drawable/ic_dowload" />
+    </RelativeLayout>
+
+    <com.hypersoft.pzlayout.SquarePuzzleView
+        android:id="@+id/puzzle_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#454040"
+        app:layout_constraintBottom_toTopOf="@+id/seekbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_header"
+        app:radian="10" />
+
+    <androidx.appcompat.widget.AppCompatSeekBar
+        android:id="@+id/seekbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:max="100"
+        android:maxWidth="6dp"
+        android:maxHeight="6dp"
+        android:progress="10"
+        android:progressDrawable="@drawable/custom_seekbar_progress"
+        android:thumb="@drawable/ic_thumb_seekbar"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/pieceButtons"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <HorizontalScrollView
+        android:id="@+id/pieceButtons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#f2f2f2"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toTopOf="@+id/rcvListPuzzleLayouts">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/bottomNav"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <!--<com.google.android.material.textview.MaterialTextView
+                android:id="@+id/pswap"
+                style="@style/SelectableItemBackground"
+                                         android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/swappiece"
+                android:gravity="center"
+                android:text="swap"
+                android:textColor="@color/white"
+                android:textSize="8dp" />-->
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/pmirror"
+                style="@style/SelectableItemBackground"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/ic_mirrorpiece"
+                android:gravity="center"
+                android:paddingHorizontal="@dimen/_15sdp"
+                android:fontFamily="@font/barlow_regular_400"
+                android:includeFontPadding="false"
+                android:paddingVertical="@dimen/_10sdp"
+                android:text="@string/mirror"
+                android:textColor="#5D5D5D"
+                android:textSize="@dimen/_12ssp" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/pflip"
+                style="@style/SelectableItemBackground"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/ic_flippiece"
+                android:gravity="center"
+                android:paddingHorizontal="@dimen/_15sdp"
+                android:fontFamily="@font/barlow_regular_400"
+                android:includeFontPadding="false"
+                android:paddingVertical="@dimen/_10sdp"
+                android:text="@string/flip"
+                android:textColor="#5D5D5D"
+                android:textSize="@dimen/_12ssp" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/protate"
+                style="@style/SelectableItemBackground"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/ic_rotatepiece"
+                android:gravity="center"
+                android:paddingHorizontal="@dimen/_15sdp"
+                android:paddingVertical="@dimen/_10sdp"
+                android:fontFamily="@font/barlow_regular_400"
+                android:includeFontPadding="false"
+                android:text="@string/rotate"
+                android:textColor="#5D5D5D"
+                android:textSize="@dimen/_12ssp" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/pzoomplus"
+                style="@style/SelectableItemBackground"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/ic_zoom_piece_plus"
+                android:gravity="center"
+                android:paddingHorizontal="@dimen/_15sdp"
+                android:paddingVertical="@dimen/_10sdp"
+                android:fontFamily="@font/barlow_regular_400"
+                android:includeFontPadding="false"
+                android:text="@string/zoom"
+                android:textColor="#5D5D5D"
+                android:textSize="@dimen/_12ssp" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/pzoomminus"
+                style="@style/SelectableItemBackground"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/ic_zoom_piece_minus"
+                android:gravity="center"
+                android:paddingHorizontal="@dimen/_15sdp"
+                android:fontFamily="@font/barlow_regular_400"
+                android:includeFontPadding="false"
+                android:paddingVertical="@dimen/_10sdp"
+                android:text="@string/zoom"
+                android:textColor="#5D5D5D"
+                android:textSize="@dimen/_12ssp" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/pleft"
+                style="@style/SelectableItemBackground"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/ic_leftpiece"
+                android:gravity="center"
+                android:fontFamily="@font/barlow_regular_400"
+                android:includeFontPadding="false"
+                android:paddingHorizontal="@dimen/_15sdp"
+                android:paddingVertical="@dimen/_10sdp"
+                android:text="@string/left"
+                android:textColor="#5D5D5D"
+                android:textSize="@dimen/_12ssp" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/pright"
+                style="@style/SelectableItemBackground"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/ic_rightpiece"
+                android:gravity="center"
+                android:paddingHorizontal="@dimen/_15sdp"
+                android:fontFamily="@font/barlow_regular_400"
+                android:includeFontPadding="false"
+                android:paddingVertical="@dimen/_10sdp"
+                android:text="@string/right"
+                android:textColor="#5D5D5D"
+                android:textSize="@dimen/_12ssp" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/pup"
+                style="@style/SelectableItemBackground"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/ic_uppiece"
+                android:gravity="center"
+                android:fontFamily="@font/barlow_regular_400"
+                android:includeFontPadding="false"
+                android:paddingHorizontal="@dimen/_15sdp"
+                android:paddingVertical="@dimen/_10sdp"
+                android:text="@string/up"
+                android:textColor="#5D5D5D"
+                android:textSize="@dimen/_12ssp" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/pdown"
+                style="@style/SelectableItemBackground"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/ic_downpiece"
+                android:gravity="center"
+                android:fontFamily="@font/barlow_regular_400"
+                android:includeFontPadding="false"
+                android:paddingHorizontal="@dimen/_15sdp"
+                android:paddingVertical="@dimen/_10sdp"
+                android:text="down"
+                android:textColor="#5D5D5D"
+                android:textSize="@dimen/_12ssp" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/btnCorner"
+                style="@style/SelectableItemBackground"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/ic_corner"
+                android:gravity="center"
+                android:fontFamily="@font/barlow_regular_400"
+                android:includeFontPadding="false"
+                android:paddingHorizontal="@dimen/_15sdp"
+                android:paddingVertical="@dimen/_10sdp"
+                android:text="corner"
+                android:textColor="#5D5D5D"
+                android:textSize="@dimen/_12ssp" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/pchange"
+                style="@style/SelectableItemBackground"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/changepiece"
+                android:gravity="center"
+                android:fontFamily="@font/barlow_regular_400"
+                android:includeFontPadding="false"
+                android:paddingHorizontal="@dimen/_15sdp"
+                android:paddingVertical="@dimen/_10sdp"
+                android:text="@string/change"
+                android:textColor="#5D5D5D"
+                android:textSize="@dimen/_12ssp" />
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcvListPuzzleLayouts"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:clipToPadding="false"
+        android:orientation="horizontal"
+        android:paddingStart="12dp"
+        android:paddingEnd="8dp"
+        android:layout_marginBottom="@dimen/_20sdp"
+        android:scrollbarStyle="outsideOverlay"
+        android:scrollbars="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:itemCount="40"
+        tools:listitem="@layout/item_puzzle_layouts" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
