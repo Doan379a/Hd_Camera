@@ -12,6 +12,10 @@ constraintlayout = "2.2.1"
 junitJunit = "4.12"
 junitJupiter = "5.8.1"
 gridlayout = "1.1.0"
+googleGmsGoogleServices = "4.4.2"
+firebaseConfig = "22.1.2"
+firebaseCrashlytics = "19.4.4"
+googleFirebaseCrashlytics = "3.0.4"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -25,8 +29,12 @@ androidx-constraintlayout = { group = "androidx.constraintlayout", name = "const
 junit-junit = { group = "junit", name = "junit", version.ref = "junitJunit" }
 junit-jupiter = { group = "org.junit.jupiter", name = "junit-jupiter", version.ref = "junitJupiter" }
 androidx-gridlayout = { group = "androidx.gridlayout", name = "gridlayout", version.ref = "gridlayout" }
+firebase-config = { group = "com.google.firebase", name = "firebase-config", version.ref = "firebaseConfig" }
+firebase-crashlytics = { group = "com.google.firebase", name = "firebase-crashlytics", version.ref = "firebaseCrashlytics" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+google-gms-google-services = { id = "com.google.gms.google-services", version.ref = "googleGmsGoogleServices" }
+google-firebase-crashlytics = { id = "com.google.firebase.crashlytics", version.ref = "googleFirebaseCrashlytics" }
 

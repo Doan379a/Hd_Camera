@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "549128035414",
+    "project_id": "beauty-camera-hd-photo-editor",
+    "storage_bucket": "beauty-camera-hd-photo-editor.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:549128035414:android:9a8714225cfe9e627aaff7",
+        "android_client_info": {
+          "package_name": "com.beautycam.hdcam.photoeditor"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVDIxU8Qf9W_TM65mKIJbPGFByOI_u7nw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
